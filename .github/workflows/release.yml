@@ -52,7 +52,7 @@ jobs:
           if [ "${{ matrix.target }}" == "x86_64-pc-windows-msvc" ]; then
             cp target/${{ matrix.target }}/release/ocr_capi.dll artifacts/ocr_capi-windows-x64.dll
             cp include/ocr_capi_simple.h artifacts/
-            cp README_SIMPLE.md artifacts/README.md
+            cp README.md artifacts/
             mkdir -p artifacts/examples
             cp -r examples/c_simple/* artifacts/examples/
           else
@@ -119,7 +119,7 @@ jobs:
           cp target/${{ matrix.target }}/release/libocr_capi.so artifacts/libocr_capi-linux-${TARGET_NAME}.so
           if [ "${{ matrix.target }}" == "x86_64-unknown-linux-gnu" ]; then
             cp include/ocr_capi_simple.h artifacts/
-            cp README_SIMPLE.md artifacts/README.md
+            cp README.md artifacts/
             mkdir -p artifacts/examples
             cp -r examples/c_simple/* artifacts/examples/
           fi
@@ -172,7 +172,7 @@ jobs:
           if [ "${{ matrix.target }}" == "x86_64-apple-darwin" ]; then
             cp target/${{ matrix.target }}/release/libocr_capi.dylib artifacts/libocr_capi-macos-x64.dylib
             cp include/ocr_capi_simple.h artifacts/
-            cp README_SIMPLE.md artifacts/README.md
+            cp README.md artifacts/
             mkdir -p artifacts/examples
             cp -r examples/c_simple/* artifacts/examples/
           else
