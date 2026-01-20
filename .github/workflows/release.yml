@@ -51,12 +51,14 @@ jobs:
           mkdir -p artifacts
           if [ "${{ matrix.target }}" == "x86_64-pc-windows-msvc" ]; then
             cp target/${{ matrix.target }}/release/ocr_capi.dll artifacts/ocr_capi-windows-x64.dll
+            cp target/${{ matrix.target }}/release/ocr_capi.dll.lib artifacts/ocr_capi-windows-x64.lib
             cp include/ocr_capi_simple.h artifacts/
             cp README.md artifacts/
             mkdir -p artifacts/examples
             cp -r examples/c_simple/* artifacts/examples/
           else
             cp target/${{ matrix.target }}/release/ocr_capi.dll artifacts/ocr_capi-windows-x86.dll
+            cp target/${{ matrix.target }}/release/ocr_capi.dll.lib artifacts/ocr_capi-windows-x86.lib
           fi
       
       - name: Upload artifacts

@@ -26,7 +26,7 @@ cargo build --release
 编译后会生成:
 - macOS: `target/release/libocr_capi.dylib`
 - Linux: `target/release/libocr_capi.so`
-- Windows: `target/release/ocr_capi.dll`
+- Windows: `target/release/ocr_capi.dll` + `target/release/ocr_capi.dll.lib` (导入库)
 
 ### 2. 编译并运行C示例
 
@@ -188,6 +188,15 @@ gcc -o app app.c \
     -L/path/to/target/release \
     -locr_capi \
     -Wl,-rpath,\$ORIGIN
+
+# Windows (使用MSVC)
+cl.exe app.c /I\path\to\include /link /LIBPATH:\path\to\target\release ocr_capi.dll.lib
+
+# Windows (使用MinGW)
+gcc -o app app.c \
+    -I/path/to/include \
+    -L/path/to/target/release \
+    -locr_capi
 ```
 
 ## 注意事项
